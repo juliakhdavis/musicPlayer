@@ -1,32 +1,32 @@
 
 const musicContainer = document.querySelector('.music-container')
-const playBtn = document.querySelector('play')
-const prevBtn = document.querySelector('prev')
-const nextBtn = document.querySelector('next')
+const playBtn = document.querySelector('#play')
+const prevBtn = document.querySelector('#prev')
+const nextBtn = document.querySelector('#next')
 
 
-const audio = document.getElementById('audio')
-const progress = document.getElementById('progress')
-const progressContainer = document.getElementById('progress-container')
-const title = document.getElementById('title')
-const cover = document.getElementById('cover')
+const audio = document.getElementById('#audio')
+const progress = document.getElementById('#progress')
+const progressContainer = document.getElementById('#progress-container')
+const title = document.getElementById('#title')
+const cover = document.getElementById('#cover')
 const currTime = document.querySelector('#currTime')
 const durTime = document.querySelector('#durTime')
 
 
 // Enter song titles here as strings in an array
-const songs = ['mountains', 'go', 'here']
+const songs = ['mountains']
 
 // Keeps track of songs. index is two because we start count at zero
-let songIndex = 2
+let songIndex = 0
 
 // load songs into DOM
 loadSong(songs[songIndex])
 
 // update song details
-function loadSong(song) {
-    title.innerText = song;
-    audio.src = `music/${song}.mp3`;
+function loadSong(songs) {
+    title.innerText = songs;
+    audio.src = `music/${songs}.mp3`;
     cover.src = `images/${song}.jpg`;
 }
 
@@ -151,7 +151,7 @@ function DurTime (e) {
 		
 };
 
-// Event listeners
+
 playBtn.addEventListener('click', () => {
     const isPlaying = musicContainer.classList.contains('play')
 
